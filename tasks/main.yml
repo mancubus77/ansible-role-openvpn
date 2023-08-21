@@ -21,6 +21,7 @@
 
 - name: Copy or Generate server keys
   import_tasks: server_keys.yml
+  tags: [ add_clients ]
 
 # ignoreerrors is required for CentOS/RHEL 6
 # http://serverfault.com/questions/477718/sysctl-p-etc-sysctl-conf-returns-error
