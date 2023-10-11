@@ -3,6 +3,9 @@ client
 tls-client
 auth {{ openvpn_auth_alg }}
 cipher {{ openvpn_cipher }}
+data-ciphers '{{ openvpn_cipher }}'
+data-ciphers-fallback '{{ openvpn_cipher }}'
+
 remote-cert-tls server
 {% if openvpn_use_modern_tls %}
 tls-version-min 1.2
@@ -31,7 +34,6 @@ auth-user-pass
 {% endfor %}
 
 route-method exe
-route-delay 2
 {% if openvpn_client_register_dns %}
 register-dns
 {% endif %}
